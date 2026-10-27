@@ -1,13 +1,24 @@
 # SceneArcade plugin
 
-Lets Claude Code and Codex publish a finished browser game to SceneArcade. Setup steps are in the [repository README](../../README.md).
+**You don't need this plugin.** Adding SceneArcade's connector to Claude or Codex is enough to publish a finished browser game; the one-click Claude link and the Codex custom-MCP steps are in the [repository README](../../README.md). Only invited (proof) accounts can publish today.
+
+To add it anyway (Claude Code):
+
+```text
+claude plugin marketplace add Maathony/scenearcade-plugins
+claude plugin install scenearcade@scenearcade-plugins
+```
+
+Codex and the desktop apps: see "The plugin (optional)" in the repository README.
 
 ## What it adds
 
-- **`publisher` connector** (`.mcp.json`): a remote MCP server at `https://proof.nex6.com/mcp` with three tools: `get_account`, `submit_build` and `get_submission`. In Claude Code they appear as `mcp__plugin_scenearcade_publisher__<tool>`. You sign in once in your browser.
-- **`publish` skill** (`skills/publish/SKILL.md`): the steps the assistant follows. It is a condensed copy of SceneArcade's Docs pages "Prepare and test" and "Connect and publish", rewritten for this flow: pack the ZIP with its cover, play-test it, write the testing report, work out the size and SHA-256, call `submit_build`, upload with one `curl` command, then call `get_submission`.
+The plugin is an optional extra: the same publishing guide as a skill.
 
-In Claude Code the skill runs as `/scenearcade:publish`; the assistant also picks it up when you ask to publish a game.
+- **`publish` skill** (`skills/publish/SKILL.md`): the steps the assistant follows. It is a condensed copy of the guide the connector itself carries: pack the ZIP with its cover, play-test it, write the testing report, work out the size and SHA-256, call `submit_build` (approval 1), upload with one `curl` command (approval 2), then call `get_submission`. In Claude Code it runs as `/scenearcade:publish`; the assistant also picks it up when you ask to publish a game.
+- **`publisher` connector** (`.mcp.json`): the same remote MCP server the connector link adds, at `https://proof.nex6.com/mcp`, with three tools: `get_account`, `submit_build` and `get_submission`. If your app asks you to sign in for it, sign in once in your browser and press **Approve**.
+
+Your SceneArcade account is whichever account your browser is signed in to on proof.nex6.com when you approve. Check the name on the approval page.
 
 ## Files
 
@@ -22,7 +33,6 @@ plugins/scenearcade/
 
 ## Maintainers
 
-- `SKILL.md` was reconciled with the connector code (`app/mcp/route.ts` in the platform repo, branch `feat/ip9a-connector`). If a tool's input or reply changes, update the skill; the tool's own schema wins where they differ.
+- The connector's tool schemas and replies, and the `guide` that `get_account` returns (`app/mcp/guide.ts` in the platform repo), are the source of truth. `SKILL.md` follows them; when they differ, the connector wins. The SceneArcade Docs are background.
 - Moving from the proof host to the main SceneArcade address means editing `.mcp.json` and the two `proof.nex6.com` Docs addresses in `SKILL.md` (the intro and the `instructionsUrl` example).
 - `version` is set in both manifests, so installed copies update only when you raise it. Raise it in both files together on every change.
-- Keep the skill in step with the SceneArcade Docs.
