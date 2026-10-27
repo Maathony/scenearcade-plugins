@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "publisher": {
+      "type": "http",
+      "url": "https://proof.nex6.com/mcp"
+    }
+  }
+}

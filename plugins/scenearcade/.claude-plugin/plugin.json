@@ -1,0 +1,11 @@
+{
+  "name": "scenearcade",
+  "displayName": "SceneArcade",
+  "version": "0.1.0",
+  "description": "Publish a finished browser game to SceneArcade: pack it, play-test it, upload it and follow its review.",
+  "author": {
+    "name": "NEX6"
+  },
+  "license": "MIT",
+  "keywords": ["scenearcade", "publish", "browser-game", "mcp"]
+}

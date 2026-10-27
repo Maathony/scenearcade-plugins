@@ -1,0 +1,17 @@
+{
+  "name": "scenearcade-plugins",
+  "description": "Plugins for publishing browser games to SceneArcade from Claude Code and Codex.",
+  "owner": {
+    "name": "NEX6"
+  },
+  "plugins": [
+    {
+      "name": "scenearcade",
+      "source": "./plugins/scenearcade",
+      "displayName": "SceneArcade",
+      "description": "Publish a finished browser game to SceneArcade: pack it, play-test it, upload it and follow its review.",
+      "category": "publishing",
+      "tags": ["scenearcade", "publish", "browser-game", "mcp"]
+    }
+  ]
+}

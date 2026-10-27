@@ -1,0 +1,24 @@
+{
+  "name": "scenearcade",
+  "version": "0.1.0",
+  "description": "Publish a finished browser game to SceneArcade: pack it, play-test it, upload it and follow its review.",
+  "author": {
+    "name": "NEX6"
+  },
+  "license": "MIT",
+  "keywords": ["scenearcade", "publish", "browser-game", "mcp"],
+  "skills": "./skills/",
+  "mcpServers": "./.mcp.json",
+  "interface": {
+    "displayName": "SceneArcade",
+    "shortDescription": "Publish your browser game to SceneArcade",
+    "longDescription": "Publish a finished browser game to SceneArcade from your own computer. The assistant packs the game with its required cover, play-tests it, writes the testing report, uploads the ZIP to private storage with one command and follows the review status. Sign in once in your browser; you approve each upload.",
+    "developerName": "NEX6",
+    "category": "Developer Tools",
+    "capabilities": ["Read", "Write"],
+    "defaultPrompt": [
+      "Publish this game to SceneArcade.",
+      "Check the status of my SceneArcade submission."
+    ]
+  }
+}
