@@ -22,7 +22,7 @@ plugins/scenearcade/
 
 ## Maintainers
 
-- The skill's tool arguments are written generically on purpose. Lines marked `<!-- reconcile -->` in `SKILL.md` depend on the connector's final input schemas and Docs address; resolve and remove each marker once the server side is built.
-- Changing the connector address (proof host to the main SceneArcade address) means editing `.mcp.json` only.
+- `SKILL.md` was reconciled with the connector code (`app/mcp/route.ts` in the platform repo, branch `feat/ip9a-connector`). If a tool's input or reply changes, update the skill; the tool's own schema wins where they differ.
+- Moving from the proof host to the main SceneArcade address means editing `.mcp.json` and the two `proof.nex6.com` Docs addresses in `SKILL.md` (the intro and the `instructionsUrl` example).
 - `version` is set in both manifests, so installed copies update only when you raise it. Raise it in both files together on every change.
 - Keep the skill in step with the SceneArcade Docs.
